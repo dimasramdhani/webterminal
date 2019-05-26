@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 20 Apr 2019 pada 07.34
+-- Waktu pembuatan: 26 Bulan Mei 2019 pada 20.14
 -- Versi server: 10.1.32-MariaDB
 -- Versi PHP: 5.6.36
 
@@ -53,23 +53,25 @@ INSERT INTO `jadwalbis` (`jadwal_id`, `jadwal_terminal`, `jadwal_singgah`, `jadw
 
 CREATE TABLE `kontak` (
   `id` int(10) UNSIGNED NOT NULL,
-  `nama` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `email` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `nohp` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `alamat` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `nama` text COLLATE utf8mb4_unicode_ci,
+  `email` text COLLATE utf8mb4_unicode_ci,
+  `nohp` text COLLATE utf8mb4_unicode_ci,
+  `alamat` text COLLATE utf8mb4_unicode_ci,
+  `updated_at` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `tarif` text COLLATE utf8mb4_unicode_ci,
+  `kuota` text COLLATE utf8mb4_unicode_ci
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data untuk tabel `kontak`
 --
 
-INSERT INTO `kontak` (`id`, `nama`, `email`, `nohp`, `alamat`, `created_at`, `updated_at`) VALUES
-(24, 'gedebage', '12.00', '13.00', 'SEAT B', '2019-04-17 00:41:46', '2019-04-17 00:41:46'),
-(25, 'rancaekek', '12.00', '13.00', 'BIS C', '2019-04-17 01:03:35', '2019-04-17 01:03:35'),
-(26, 'cileunyi', '10.10', '11.20', 'BIS MGI AC 48 SEAT NO.POL D.9000.NA', '2019-04-17 02:15:44', '2019-04-17 02:15:44'),
-(27, '1', '12', '13', '1222', '2019-04-19 02:18:11', '2019-04-19 02:18:11');
+INSERT INTO `kontak` (`id`, `nama`, `email`, `nohp`, `alamat`, `updated_at`, `created_at`, `tarif`, `kuota`) VALUES
+(30, 'Terminal Bojonegoro', '12.10', '12.10', 'MGI', '2019-04-21 10:41:35', '2019-04-21 10:41:35', 'Rp.20.000', '40'),
+(31, 'TERMINAL PURWODADI', '15.35', NULL, 'Sumber Kencono', '2019-04-21 10:56:07', '2019-04-21 10:56:07', 'Rp.30.000', '40'),
+(32, 'Terminal Tegal', '20.40', NULL, 'MGI', '2019-04-21 10:58:22', '2019-04-21 10:58:22', 'Rp.50.000', '40'),
+(33, 'Terminal Pekalongan', '18.00', NULL, 'Sumber Kencono No.35', '2019-04-21 11:01:00', '2019-04-21 11:01:00', 'Rp.20.000', '30');
 
 -- --------------------------------------------------------
 
@@ -130,7 +132,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'admin', 'adminadmin@gmail.com', '$2y$10$05bEWbZMNrV2AAlut.UjdeKjhKZlcAZaFbJUA.noMAN/RwNz8ZmQK', 'JQht8qVfeQhcJFbqacHQhk8fnqIsKwiITsrM541FPs6ovGhns73PH0sPDXbi', '2019-04-16 08:54:22', '2019-04-16 08:54:22');
+(1, 'admin', 'adminadmin@gmail.com', '$2y$10$05bEWbZMNrV2AAlut.UjdeKjhKZlcAZaFbJUA.noMAN/RwNz8ZmQK', 'JQihCFPSNPkwLNBTbVZHUAnYc5iRYaWz9embSrEMZ3wGcghns73PH0sPDXbi', '2019-04-16 08:54:22', '2019-04-16 08:54:22'),
+(2, 'domas', 'fauziah_27@yahoo.com', '$2y$10$ysDCcmExlsBFrEm7Cp38ueVui7pqJ8h1OeYl0pjNptjmJGUWFGiWG', NULL, '2019-05-26 10:54:47', '2019-05-26 10:54:47');
 
 --
 -- Indexes for dumped tables
@@ -181,7 +184,7 @@ ALTER TABLE `jadwalbis`
 -- AUTO_INCREMENT untuk tabel `kontak`
 --
 ALTER TABLE `kontak`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT untuk tabel `migrations`
@@ -193,7 +196,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT untuk tabel `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
